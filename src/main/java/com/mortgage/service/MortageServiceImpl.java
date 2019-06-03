@@ -46,4 +46,25 @@ public class MortageServiceImpl implements MortageService {
 		return appDto;
 	}
 
+	@Override
+	public ApplicationDto searchApplicationById(Long applicationId) {
+		Application applic = applicationRepository.findById(applicationId).get();
+
+		ApplicationDto appDto = new ApplicationDto();
+
+		appDto.setApplicationId(applic.getApplicationId());
+		appDto.setAddress(applic.getAddress());
+		appDto.setApplicantIncome(applic.getApplicantIncome());
+		appDto.setCreditStatus(applic.getCreditStatus());
+		appDto.setFirstName(applic.getFirstName());
+		appDto.setLastName(applic.getLastName());
+		appDto.setLoanAmount(applic.getLoanAmount());
+		appDto.setStatus(applic.getStatus());
+		appDto.setTimeCreated(applic.getTimeCreated());
+		appDto.setTimeModified(applic.getTimeModified());
+		appDto.setActionMessage(applic.getActionMessage());
+
+		return appDto;
+	}
+
 }

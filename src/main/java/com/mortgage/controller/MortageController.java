@@ -1,9 +1,12 @@
 package com.mortgage.controller;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +26,10 @@ public class MortageController {
 		return new ResponseEntity<ApplicationDto>(appDto, HttpStatus.OK);
 	}
 
-	// @GetMapping("/searchApplicationById
+	@GetMapping("/searchApplicationById/{applicationId}")
+	public ResponseEntity<ApplicationDto> searchApplicationById(@PathVariable Long applicationId) {
+		ApplicationDto appDto = mortageService.searchApplicationById(applicationId);
+		return new ResponseEntity<ApplicationDto>(appDto, HttpStatus.OK);
+	}
 
 }
