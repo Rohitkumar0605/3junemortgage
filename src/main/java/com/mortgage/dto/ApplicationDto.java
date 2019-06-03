@@ -5,7 +5,8 @@ import java.util.Date;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-public class Application {
+public class ApplicationDto {
+
 	private Long applicationId;
 	private String firstName;
 	private String lastName;
