@@ -7,6 +7,7 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 public class ApplicationDto {
+
 	private Long applicationId;
 	private String firstName;
 	private String lastName;
