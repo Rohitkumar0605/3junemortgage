@@ -32,14 +32,6 @@ public class Application implements Serializable {
 	@Transient
 	private String actionMessage;
 
-	public String getActionMessage() {
-		return actionMessage;
-	}
-
-	public void setActionMessage(String actionMessage) {
-		this.actionMessage = actionMessage;
-	}
-
 	public Application() {
 		super();
 	}
@@ -122,6 +114,14 @@ public class Application implements Serializable {
 
 	public void setTimeModified(Date timeModified) {
 		this.timeModified = timeModified;
+	}
+
+	public String getActionMessage() {
+		return actionMessage;
+	}
+
+	public void setActionMessage(String actionMessage) {
+		this.actionMessage = actionMessage;
 	}
 
 	@Override

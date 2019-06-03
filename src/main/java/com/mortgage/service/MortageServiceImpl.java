@@ -1,11 +1,15 @@
 package com.mortgage.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mortgage.dto.ApplicationDto;
+
 import com.mortgage.entity.Application;
 import com.mortgage.repository.ApplicationRepository;
 
@@ -13,7 +17,18 @@ import com.mortgage.repository.ApplicationRepository;
 public class MortageServiceImpl implements MortageService {
 
 	@Autowired
-	private ApplicationRepository applicationRepository;
+	ApplicationRepository applicationRepository;
+
+	@Override
+	public List<Application> getAllApp() {
+		List<Application> lst = new ArrayList<Application>();
+		lst.addAll(applicationRepository.getDetailsBasedOnStatusNew());
+		lst.addAll(applicationRepository.getDetailsBasedOnStatusApproved());
+		lst.addAll(applicationRepository.getDetailsBasedOnStatusFunded());
+
+		return lst;
+
+	}
 
 	public ApplicationDto saveApplication(ApplicationDto applicationDto) {
 		Application application = new Application();
@@ -65,6 +80,7 @@ public class MortageServiceImpl implements MortageService {
 		appDto.setActionMessage(applic.getActionMessage());
 
 		return appDto;
+
 	}
 
 }
