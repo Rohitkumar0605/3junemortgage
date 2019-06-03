@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 public class ApplicationDto {
 
@@ -19,6 +20,7 @@ public class ApplicationDto {
 	private Date timeCreated;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date timeModified;
+	private String actionMessage;
 
 	public Long getApplicationId() {
 		return applicationId;
@@ -98,6 +100,14 @@ public class ApplicationDto {
 
 	public void setTimeModified(Date timeModified) {
 		this.timeModified = timeModified;
+	}
+
+	public String getActionMessage() {
+		return actionMessage;
+	}
+
+	public void setActionMessage(String actionMessage) {
+		this.actionMessage = actionMessage;
 	}
 
 }
