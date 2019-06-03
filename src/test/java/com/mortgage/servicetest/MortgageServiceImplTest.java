@@ -3,6 +3,7 @@ package com.mortgage.servicetest;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
+import java.util.Optional;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -41,8 +42,6 @@ public class MortgageServiceImplTest {
 		appDto.setLastName("karthik");
 		appDto.setLoanAmount(25000.00);
 		appDto.setStatus("New");
-		appDto.setTimeCreated(new Date());
-		appDto.setTimeModified(new Date());
 
 		app.setActionMessage("");
 		app.setAddress(appDto.getAddress());
@@ -53,14 +52,20 @@ public class MortgageServiceImplTest {
 		app.setLastName(appDto.getLastName());
 		app.setLoanAmount(appDto.getLoanAmount());
 		app.setStatus(appDto.getStatus());
-		app.setTimeCreated(appDto.getTimeCreated());
-		app.setTimeModified(appDto.getTimeModified());
-
+		app.setTimeCreated(new Date());
+		app.setTimeModified(new Date());
 	}
 
 	@Test
 	public void saveApplicationTest() {
 		Mockito.when(appRepo.save(app)).thenReturn(app);
+		ApplicationDto actval1 = mortageServiceImpl.saveApplication(appDto);
+		assertEquals(app.getFirstName(), actval1.getFirstName());
+	}
+
+	@Test
+	public void searchApplicationByIdTest() {
+		Mockito.when(appRepo.findById(111L).get()).thenReturn(app);
 		ApplicationDto actval1 = mortageServiceImpl.saveApplication(appDto);
 		assertEquals(app.getFirstName(), actval1.getFirstName());
 	}

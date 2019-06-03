@@ -10,6 +10,15 @@ public class ApplicationDto {
 	private Long applicationId;
 	private String firstName;
 	private String lastName;
+
+	public String getStatusMessage() {
+		return statusMessage;
+	}
+
+	public void setStatusMessage(String statusMessage) {
+		this.statusMessage = statusMessage;
+	}
+
 	private String address;
 	private double applicantIncome;
 	private double loanAmount;
@@ -21,8 +30,19 @@ public class ApplicationDto {
 	private Date timeModified;
 	private String actionMessage;
 
+	private Integer statusCode;
+	private String statusMessage;
+
 	public Long getApplicationId() {
 		return applicationId;
+	}
+
+	public Integer getStatusCode() {
+		return statusCode;
+	}
+
+	public void setStatusCode(Integer statusCode) {
+		this.statusCode = statusCode;
 	}
 
 	public void setApplicationId(Long applicationId) {

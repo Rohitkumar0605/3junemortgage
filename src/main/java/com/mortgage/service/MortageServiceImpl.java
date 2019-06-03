@@ -63,6 +63,8 @@ public class MortageServiceImpl implements MortageService {
 		appDto.setTimeCreated(applic.getTimeCreated());
 		appDto.setTimeModified(applic.getTimeModified());
 		appDto.setActionMessage(applic.getActionMessage());
+		appDto.setStatusMessage("Success");
+		appDto.setStatusCode(200);
 
 		return appDto;
 	}
